@@ -1,4 +1,6 @@
+import 'package:financial_app/common/constants/constans_values.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeHeaderSection extends StatelessWidget {
   const HomeHeaderSection({
@@ -16,11 +18,11 @@ class HomeHeaderSection extends StatelessWidget {
             vertical: 16.0,
           ),
           color: Colors.amber,
-          child: const Row(
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Wrap(
+              const Wrap(
                 direction: Axis.vertical,
                 children: [
                   Text(
@@ -44,16 +46,23 @@ class HomeHeaderSection extends StatelessWidget {
                 spacing: 16.0,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  Badge(
+                  const Badge(
                     label: Text("1"),
                     child: Icon(
                       Icons.notifications_none,
                       color: Colors.white,
                     ),
                   ),
-                  CircleAvatar(
-                    backgroundColor: Colors.grey,
-                    child: Text("T"),
+                  InkWell(
+                    onTap: () {
+                      context.pushNamed(
+                        ConstansValues.routeName.profileMenu,
+                      );
+                    },
+                    child: const CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      child: Text("T"),
+                    ),
                   )
                 ],
               )
