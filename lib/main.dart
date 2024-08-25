@@ -1,7 +1,17 @@
 import 'package:financial_app/common/navigations/router_configuration.dart';
+import 'package:financial_app/injection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Injection();
+  await initializeDateFormatting('id_ID', null);
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
